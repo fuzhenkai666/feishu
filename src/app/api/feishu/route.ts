@@ -14,10 +14,10 @@ export async function POST(request: NextRequest) {
         // 处理URL验证请求
         if (body.type === "url_verification") {
             return new Response(
-                body.challenge,
+                JSON.stringify({ challenge: body.challenge }),
                 {
                     status: 200,
-                    headers: { "Content-Type": "text/plain" },
+                    headers: { "Content-Type": "application/json" },
                 }
             );
         }
