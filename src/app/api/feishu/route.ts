@@ -12,22 +12,13 @@ export async function POST(request: NextRequest) {
         console.log('Received Feishu webhook request body:', JSON.stringify(body, null, 2));
 
         // 处理URL验证请求
-        if (body.type === "url_verification") {
-            return new Response(
-                JSON.stringify({ challenge: body.challenge }),
-                {
-                    status: 200,
-                    headers: { "Content-Type": "application/json" },
-                }
-            );
-        }
 
         // 处理其他事件类型
-        console.log("Received Feishu event:", body);
+        console.log("乐子乐子乐子乐子乐子乐子乐子:", body.body.challenge)
 
         // 返回成功响应
         return new Response(
-            JSON.stringify({ code: 0, msg: "success" }),
+            JSON.stringify({challenge: body.body.challenge}),
             {
                 status: 200,
                 headers: { "Content-Type": "application/json" },
