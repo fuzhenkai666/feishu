@@ -7,6 +7,9 @@ export async function POST(request: NextRequest) {
     try {
         // 获取请求体
         const body = await request.json();
+        
+        // 输出完整的请求体数据到控制台
+        console.log('Received Feishu webhook request body:', JSON.stringify(body, null, 2));
 
         // 处理URL验证请求
         if (body.type === "url_verification") {
